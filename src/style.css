@@ -1,0 +1,36 @@
+:root {
+  background-color: #111;
+  color: lightgray;
+}
+
+.mapping {
+  background: #222;
+  box-shadow: 0 5px 5px black;
+  color: auto;
+  border-radius: 1em;
+  max-width: 20em;
+  min-height: 6em;
+  padding: 1em;
+}
+
+.mapping__header {
+  margin: 0 0 0.2em 0;
+}
+
+.mapping__label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.2em 0;
+}
+
+.mapping__output {
+  padding: 0.2em;
+}
+
+.mapping__output--error {
+  color: pink;
+}
+
+.mapping__outputsup {
+  line-height: 0;
+}

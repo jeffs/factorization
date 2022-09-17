@@ -1,0 +1,24 @@
+{
+  "name": "play",
+  "version": "0.0.1",
+  "description": "Playing with code",
+  "scripts": {
+    "start": "cd src && http-server -p 8000",
+    "test": "cd src/workers/lib && node tests/*.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffs/profile-sort.git"
+  },
+  "author": "Jeff Schwab <jeff@unbuggy.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jeffs/profile-sort/issues"
+  },
+  "homepage": "https://github.com/jeffs/profile-sort#readme",
+  "type": "module",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "prettier": "^2.7.1"
+  }
+}
