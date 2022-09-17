@@ -2,6 +2,10 @@ import { clear, create } from "../elements.js";
 
 const idCounts = {};
 
+function nextIdCount(topic) {
+  return (idCounts[topic] = (idCounts[topic] ?? 0) + 1);
+}
+
 function MappingLabel(text, child) {
   const props = { className: "mapping__label" };
   if (child.id) {
@@ -25,9 +29,8 @@ export default function Mapping(topic, options = {}) {
   // Return a section with the title, labeled input, and labeled output.
 
   // Give the first mapping of topic "Foo" the ID "Foo", the second "Foo2", etc.
-  const idCount = (idCounts[topic] ?? 0) + 1;
-  const sectionID = idCount === 1 ? topic : `${topic}${idCount}`;
-  idCounts[topic] = idCount;
+  const count = nextIdCount(topic);
+  const sectionID = count === 1 ? topic : `${topic}${count}`;
 
   const input = create([
     "input",
@@ -46,6 +49,7 @@ export default function Mapping(topic, options = {}) {
   const worker = new Worker(`workers/${topic}-worker.js`);
   worker.addEventListener("message", (event) => {
     clear(output);
+    clearTimeout(event.data.id);
     if (event.data.error) {
       output.classList.add("mapping__output--error");
       output.append(...renderError(event.data.error));
@@ -57,7 +61,11 @@ export default function Mapping(topic, options = {}) {
     }
   });
   input.addEventListener("input", (event) => {
-    worker.postMessage(event.target.value);
+    const timerId = setTimeout(() => {
+      clear(output);
+      output.append(create(["progress"]));
+    }, 1000);
+    worker.postMessage({ id: timerId, arg: event.target.value });
   });
 
   return create([

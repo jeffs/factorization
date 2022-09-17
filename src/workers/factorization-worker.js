@@ -6,12 +6,23 @@
 importScripts(`${location.origin}/workers/lib/factorization.js`);
 
 addEventListener("message", (event) => {
-  const data = event.data.trim();
-  if (data.length === 0) {
-    postMessage({});
-  } else if (data.match(/\D/)) {
-    postMessage({ error: "expected a natural number" });
-  } else {
-    postMessage({ value: primeFactor(Number(data) || 1) });
+  const id = event.data.id;
+  const arg = event.data.arg.trim();
+  if (arg.length === 0) {
+    postMessage({ id });
+    return;
   }
+
+  if (arg.match(/\D/)) {
+    postMessage({ id, error: "expected a natural number" });
+    return;
+  }
+
+  const n = Number(arg);
+  if (n > Number.MAX_SAFE_INTEGER) {
+    postMessage({ id, error: "that number is too big for me!" });
+    return;
+  }
+
+  postMessage({ id, value: primeFactor(n || 1) });
 });
