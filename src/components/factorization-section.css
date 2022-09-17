@@ -1,0 +1,9 @@
+/* Prevent superscripts from affecting line-height.  Inspired by Chris Coyier:
+ * https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
+ */
+.factorization-section__sup {
+  line-height: 0;
+  position: relative;
+  top: -0.4em;
+  vertical-align: baseline;
+}

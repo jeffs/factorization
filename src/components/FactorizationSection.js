@@ -6,7 +6,11 @@ function renderFactor(factor, power) {
   if (power === 1) {
     return factor;
   }
-  const exponent = create(["sup", { className: "margin__outputsup" }, power]);
+  const exponent = create([
+    "sup",
+    { className: "factorization-section__sup" },
+    power,
+  ]);
   return [factor, exponent];
 }
 
