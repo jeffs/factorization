@@ -1,12 +1,14 @@
 .mapping {
+  --width: 360px;
+
   background: #222;
   box-shadow: 0 5px 5px black;
   color: auto;
   border-radius: 1em;
-  max-width: 20em;
+  max-width: var(--width);
   min-height: 6em;
-  margin: 1em;
-  padding: 1em;
+  margin: 16px;
+  padding: 16px;
 }
 
 .mapping__header {
@@ -17,6 +19,10 @@
   display: flex;
   justify-content: space-between;
   margin: 0 0 0.2em 0;
+}
+
+.mapping__input {
+  min-width: calc(var(--width) - 72px);
 }
 
 .mapping__output {

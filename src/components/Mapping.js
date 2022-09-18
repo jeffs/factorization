@@ -34,7 +34,11 @@ export default function Mapping(topic, options = {}) {
 
   const input = create([
     "input",
-    { id: `${sectionID}-input`, autofocus: true },
+    {
+      autofocus: true,
+      className: "mapping__input",
+      id: `${sectionID}-input`,
+    },
   ]);
 
   const output = create([
