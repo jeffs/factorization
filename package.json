@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Playing with code",
   "scripts": {
+    "build:wasm": "node ./scripts/build-wasm.js",
     "start": "cd src && http-server -p 8000",
     "test": "cd src/workers/lib && node tests/*.cjs"
   },
