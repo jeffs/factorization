@@ -3,7 +3,7 @@
 // items they define.  This is despite the docs claiming otherwise:
 //
 // https://parceljs.org/languages/javascript/#classic-scripts
-importScripts(`${location.origin}/workers/lib/factorization.js`);
+importScripts('./lib/factorization.js');
 
 addEventListener("message", (event) => {
   const id = event.data.id;

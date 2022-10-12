@@ -1,4 +1,4 @@
-importScripts(`${location.origin}/workers/wasm-factorization.js`);
+importScripts(`./wasm-factorization.js`);
 
 async function main() {
   await wasm_bindgen();
