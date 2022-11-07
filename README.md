@@ -1,3 +1,4 @@
 # Factorization
 
-This repository was originally called play-brash.
+This project exists for me to play with integrating plain JavaScript and Rust
+web workers.
