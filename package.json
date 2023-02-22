@@ -4,7 +4,7 @@
   "description": "Playing with code",
   "scripts": {
     "build:wasm": "node ./scripts/build-wasm.js",
-    "start": "cd src && http-server -p 8000",
+    "start": "cd src && http-server",
     "test": "cd src/workers/lib && node tests/*.cjs"
   },
   "repository": {
