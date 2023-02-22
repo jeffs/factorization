@@ -2,3 +2,8 @@
   background-color: #111;
   color: lightgray;
 }
+
+main {
+  max-width: 760px;
+  margin: auto;
+}
